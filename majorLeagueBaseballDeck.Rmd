@@ -1,0 +1,45 @@
+---
+title: "Major League Baseball Stadiums and Championships"
+author: "Billy Caughey"
+date: "April 28, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = F, warning = F)
+library(tidyr)
+library(dplyr)
+```
+
+## Introduction and Purpose
+
+- A while ago, my friends and I were discussing where Major League Baseball (MLB) stadiums are.
+- Additionally, we wanted to know which division in the MLB had the most world series wins.
+- To this end, an app was created to answer these questions. The app will show were stadiums are and the number of championships by division.
+- The app created is [here](https://williamcaugheyapps.shinyapps.io/worldseriescounts/)
+
+## Data
+
+- The data for this project was collected from various sources including MLB.com, and the zipcode database.
+- Using the head() function, we can take a look at the data.
+
+```{r looking at the data}
+mlb <- read.csv("C:/Users/Owner/Dropbox (Personal)/Coursera/Developing Data Products/Week 4/worldSeriesCounts/baseball data.csv") %>%
+    select("Team","Location","Latitude","Longitude","Championships")
+head(mlb)
+```
+
+## Highest Championships
+
+- When all divisions are selected, the AL East division has the most world series wins.
+
+```{r graphics}
+
+knitr::include_graphics("C:/Users/Owner/Dropbox (Personal)/Coursera/Developing Data Products/Week 4/worldSeriesCounts/Capture.PNG")
+
+```
+
+## Team density
+
+- Based on the previous map, most of the teams are located in the northeastern United States.
+- The team with the most championships is the New York Yankees (which makes me sad as a Toronto Blue Jays fan!)
